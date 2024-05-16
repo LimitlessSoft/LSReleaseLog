@@ -1,6 +1,6 @@
 {
   "name": "ls-release-log",
-  "version": "0.4.10",
+  "version": "0.4.11",
   "description": "LSReleaseLog is tool used to publish releases logs for easy client understanding.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsup",
     "start": "ts-node src/index.ts",
-    "release": "npm run build && npm publish"
+    "release": "npm version patch && npm run build && npm publish"
   },
   "keywords": [
     "react"
