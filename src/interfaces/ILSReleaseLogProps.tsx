@@ -1,3 +1,5 @@
 export interface ILSReleaseLogProps {
-    githubAuthToken: string
+    githubBearerToken: string,
+    repoOwner: string,
+    repoName: string
 }
