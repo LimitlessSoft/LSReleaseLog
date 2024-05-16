@@ -1,6 +1,6 @@
 {
   "name": "ls-release-log",
-  "version": "0.4.14",
+  "version": "0.4.15",
   "description": "LSReleaseLog is tool used to publish releases logs for easy client understanding.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
