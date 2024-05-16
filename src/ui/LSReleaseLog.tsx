@@ -19,7 +19,7 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
             repo: props.repoName,
             trackingBranch: props.trackingBranch ?? `master`,
         }).then((response: any) => {
-            console.log(response.data.filter((pull: any) => pull.labels.find((label: any) => label.name === (props.releaseLabel ?? "release"))))
+            setPullRequests(response.data.filter((pull: any) => pull.labels.find((label: any) => label.name === (props.releaseLabel ?? "release"))))
         }).catch((error: any) => {
             setError(error.message)
         })
