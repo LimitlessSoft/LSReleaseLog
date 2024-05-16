@@ -1,8 +1,10 @@
 ## Usage
 
-LSReleaseLog is tool used to publish releases logs to the client application.
+LSReleaseLog is tool used to easy log your project releases to the client.
 
 To use it, simply attach `<LSReleaseLog githubBearerToken="personal-access-token" repoOwner="owner-of-the-repo" repoName="your-repository-name" />` to your React.js application and that is it.
+
+After that, each PR created to the tracking branch (default: master) with attached label (default: release) will be displayed shown in your application.
 
 To generate personal access token see https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
