@@ -1,3 +1,10 @@
 .ls-release-log-wrapper {
-    background-color: red;
+    background-color: #eee;
+}
+
+.ls-release-log-item-wrapper {
+    background-color: #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
 }
