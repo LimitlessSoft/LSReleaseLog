@@ -1,13 +1,13 @@
 import React from "react"
+import { ILSReleaseLogItemProps } from "../interfaces/ILSReleaseLogItemProps"
 
-export const LSReleaseLogItem = (): React.JSX.Element => {
+export const LSReleaseLogItem = (props: ILSReleaseLogItemProps): React.JSX.Element => {
     return (
         <div className={`ls-release-log-item-wrapper`}>
             <div>
-                <h3>Title</h3>
-                <div>Date commited</div>
+                <div>{props.pullRequest.closed_at.toString()}</div>
             </div>
-            <div>This is some description of work done</div>
+            <div>{props.pullRequest.body}</div>
         </div>
     )
 }
