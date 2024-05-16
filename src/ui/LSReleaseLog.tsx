@@ -11,9 +11,10 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
     })
 
     useEffect(() => {
-        octokit.request('GET /repos/{owner}/{repo}/commits', {
+        octokit.request('GET /repos/{owner}/{repo}/commits?base=master', {
             owner: props.repoOwner,
-            repo: props.repoName
+            repo: props.repoName,
+
         }).then((response: any) => {
             console.log(response.data)
         }).catch((error: any) => {
