@@ -13,5 +13,7 @@ Optional parameters are:
 Logs are displayed by looking at all PRs to the [trackingBranch] and if that PR has [releaseLabel] attached, it will use display it as new item in release log.
 Description of the PR will be used as text of the log, and `closed_at` date will be used as title.
 
+![](https://i.postimg.cc/28JvkFTC/Screenshot-2.png)
+
 ## Contribution
 If you want to implement some feature to this package, feel free to fork it and create PR
