@@ -1,5 +1,5 @@
 import React from "react"
-import "../styles/LSReleaseLog.css"
+import "../styles/LSReleaseLog.scss"
 
 export const LSReleaseLog = (): React.JSX.Element => {
     return (
