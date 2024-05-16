@@ -1,0 +1,31 @@
+{
+  "name": "ls-release-log",
+  "version": "0.4.10",
+  "description": "LSReleaseLog is tool used to publish releases logs for easy client understanding.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "start": "ts-node src/index.ts",
+    "release": "npm run build && npm publish"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "LimitlessSoft",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.2",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  }
+}
