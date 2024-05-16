@@ -11,7 +11,7 @@
   "scripts": {
     "build": "tsup",
     "start": "ts-node src/index.ts",
-    "release": "npm version patch && npm run build && npm publish && git add . && git commit -m `Releasing new version` && git push origin master"
+    "release": "npm version patch && npm run build && npm publish && git add . && git commit -m \"Release new version\" && git push origin master"
   },
   "keywords": [
     "react"
