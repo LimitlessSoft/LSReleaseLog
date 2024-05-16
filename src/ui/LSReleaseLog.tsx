@@ -11,7 +11,7 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
     })
 
     useEffect(() => {
-        octokit.request('GET /repos/{owner}/{repo}/pulls?state=closed', {
+        octokit.request('GET /repos/{owner}/{repo}/pulls?state=closed&base=master', {
             owner: props.repoOwner,
             repo: props.repoName,
 
