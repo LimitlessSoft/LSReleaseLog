@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react"
 import "../styles/LSReleaseLog.css"
 import { LSReleaseLogItem } from "./LSReleaseLogItem"
