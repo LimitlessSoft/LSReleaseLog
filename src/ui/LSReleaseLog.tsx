@@ -11,12 +11,11 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
     })
 
     useEffect(() => {
-        octokit.request('GET /repos/{owner}/{repo}/pulls?state=closed&base=master', {
+        octokit.request('GET /repos/{owner}/{repo}/pulls?state=closed&base=master&page=1', {
             owner: props.repoOwner,
             repo: props.repoName,
-
         }).then((response: any) => {
-            console.log(response.data)
+            console.log(response.data.filter((pull: any) => pull.labels.find((label: any) => label.name === "release")))
         }).catch((error: any) => {
             console.log(error)
         })
