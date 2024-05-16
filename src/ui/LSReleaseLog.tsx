@@ -15,7 +15,6 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
                 Authorization: `Bearer ${props.githubBearerToken}`,
                 Accept: 'application/vnd.github+json',
                 "X-GitHub-Api-Version": "2022-11-28"
-
             }
         }).then((response) => {
             if (response.ok) {
