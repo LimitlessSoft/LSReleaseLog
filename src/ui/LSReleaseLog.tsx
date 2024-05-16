@@ -11,12 +11,15 @@ export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
     useEffect(() => {
         fetch(`https://api.github.com/repos/${props.repoOwner}/${props.repoName}/pulls?state=closed&base=${props.trackingBranch ?? 'master'}&page=1`, {
             headers: {
-                Authorization: `Bearer ${props.githubBearerToken}`
+                Authorization: `Bearer ${props.githubBearerToken}`,
+                Accept: 'application/vnd.github+json',
+                "X-GitHub-Api-Version": "2022-11-28"
+
             }
         }).then((response) => {
             if (response.ok) {
                 return response.json().then((data) => {
-                    setPullRequests(data)
+                    setPullRequests(data.filter((pull: any) => pull.labels.find((label: any) => label.name === (props.releaseLabel ?? "release"))))
                 }).catch((error) => {
                     setError(error.message)
                 })
