@@ -2,25 +2,28 @@ import React, { useEffect } from "react"
 import "../styles/LSReleaseLog.css"
 import { LSReleaseLogItem } from "./LSReleaseLogItem"
 import { ILSReleaseLogProps } from "../interfaces/ILSReleaseLogProps"
-import { Octokit } from "octokit"
 
 export const LSReleaseLog = (props: ILSReleaseLogProps): React.JSX.Element => {
 
     const [pullRequests, setPullRequests] = React.useState<any[] | undefined>(undefined)
     const [error, setError] = React.useState<string | undefined>(undefined)
 
-    const octokit = new Octokit({
-        auth: "Bearer " + props.githubBearerToken
-    })
-
     useEffect(() => {
-        octokit.request(`GET /repos/{owner}/{repo}/pulls?state=closed&base={trackingBranch}&page=1`, {
-            owner: props.repoOwner,
-            repo: props.repoName,
-            trackingBranch: props.trackingBranch ?? `master`,
-        }).then((response: any) => {
-            setPullRequests(response.data.filter((pull: any) => pull.labels.find((label: any) => label.name === (props.releaseLabel ?? "release"))))
-        }).catch((error: any) => {
+        fetch(`https://api.github.com/repos/${props.repoOwner}/${props.repoName}/pulls?state=closed&base=${props.trackingBranch ?? 'master'}&page=1`, {
+            headers: {
+                Authorization: `Bearer ${props.githubBearerToken}`
+            }
+        }).then((response) => {
+            if (response.ok) {
+                return response.json().then((data) => {
+                    setPullRequests(data)
+                }).catch((error) => {
+                    setError(error.message)
+                })
+            } else {
+                throw new Error('Failed to fetch release log')
+            }
+        }).catch((error) => {
             setError(error.message)
         })
     }, [])
