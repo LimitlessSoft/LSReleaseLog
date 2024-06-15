@@ -2,6 +2,8 @@
 
 LSReleaseLog is tool used to easy log your project releases to the client.
 
+To install it, run `npm i ls-release-log`
+
 To use it, simply attach `<LSReleaseLog githubBearerToken="personal-access-token" repoOwner="owner-of-the-repo" repoName="your-repository-name" />` to your React.js application and that is it.
 
 After that, each PR created to the tracking branch (default: master) with attached label (default: release) will be displayed shown in your application.
